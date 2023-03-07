@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: flex-start;
+  height: 100vh;
+  margin: 1rem;
+  padding: 1rem;
+  font-family: "Space Mono", monospace;
+}
+
+.header {
+  margin-bottom: 1rem;
+}
+
+.principal {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100vw;
+}
+
+#list {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+input {
+  font-family: "Space Mono", monospace;
+}
+li {
+  width: 50vw;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  border: 2px solid grey;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  list-style: none;
+  display: flex;
+  background-color: rgb(222, 216, 216);
+  font-size: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#btnAdd {
+  box-sizing: border-box;
+  padding: auto;
+}
+.btn {
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px gray solid;
+  padding-left: 5px;
+}
+
+.btn:checked + p {
+  text-decoration: line-through;
+}
+
+.clicked {
+  background-color: blue;
+}
