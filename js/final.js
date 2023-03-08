@@ -22,6 +22,7 @@ function btnHandler(ev) {
 function addTask(task) {
   tasks.push(task);
   updateView();
+  updateLocalStorage();
 }
 
 function handleCheckbox(i, btn) {
@@ -69,6 +70,7 @@ function markTaskCompletedOrNot(taskIndex, isCompleted) {
   const task = tasks[taskIndex];
   task.completed = isCompleted;
   updateView();
+  updateLocalStorage();
 }
 
 function handleReset(ev) {
@@ -76,7 +78,17 @@ function handleReset(ev) {
   ev.preventDefault();
   tasks = [];
   updateView();
+  updateLocalStorage();
 }
 
+function updateLocalStorage() {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+function restoredFromLocalStorage() {
+  tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
+  updateView();
+}
+restoredFromLocalStorage();
 addBtn.addEventListener("click", btnHandler);
 btnReset.addEventListener("click", handleReset);
