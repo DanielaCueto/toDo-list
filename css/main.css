@@ -3,6 +3,14 @@
   padding: 0;
 }
 body {
+  background: rgb(0, 0, 139);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 139, 1) 0%,
+    rgba(0, 0, 139, 1) 30%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  color: white;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -40,12 +48,19 @@ li {
   width: 50vw;
   padding: 0.5rem;
   box-sizing: border-box;
-  border: 2px solid grey;
+  border: 1px solid;
+  background: rgb(0, 0, 139);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 139, 1) 0%,
+    rgba(0, 0, 139, 1) 30%,
+    rgba(0, 212, 255, 1) 100%
+  );
   border-radius: 5px;
   margin-bottom: 0.5rem;
   list-style: none;
   display: flex;
-  background-color: rgb(222, 216, 216);
+
   font-size: 1rem;
   align-items: center;
   justify-content: space-between;
@@ -54,6 +69,11 @@ li {
 #btnAdd {
   box-sizing: border-box;
   padding: auto;
+  background-color: #00008b;
+  color: white;
+  border-style: none;
+  padding: 0.5rem;
+  border-radius: 5px;
 }
 .btn {
   width: 15px;
@@ -70,4 +90,24 @@ li {
 
 .clicked {
   background-color: blue;
+}
+
+#reset {
+  box-sizing: border-box;
+  margin-top: 0.5rem;
+  padding: 10px;
+  background-color: #00008b;
+  color: white;
+  border-style: none;
+  border-radius: 0.5rem;
+  font-family: "Space Mono", monospace;
+  font-size: 1rem;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.hidden {
+  visibility: hidden;
 }

@@ -3,9 +3,10 @@
 const userInput = document.getElementById("inputTask");
 const list = document.getElementById("list");
 const addBtn = document.getElementById("btnAdd");
-
+const btnReset = document.getElementById("reset");
+let noTaskMsg = document.querySelector(".msg");
 // array de tareas:
-const tasks = [];
+let tasks = [];
 let task = {};
 
 function btnHandler(ev) {
@@ -37,24 +38,29 @@ function handleCheckbox(i, btn) {
 function updateView() {
   console.log(tasks);
   list.innerHTML = "";
-  for (let i = 0; i < tasks.length; i++) {
-    let item = tasks[i];
-    const li = document.createElement("li");
-    const p = document.createElement("p");
-    const btn = document.createElement("input");
-    btn.addEventListener("click", () => handleCheckbox(i, btn));
-    btn.setAttribute("class", "btn");
-    btn.setAttribute("type", "checkbox");
-    if (item.completed) {
-      btn.setAttribute("checked", true);
-    } else {
-      btn.removeAttribute("checked");
-    }
+  if (tasks.length === 0) {
+    noTaskMsg.classList.remove("hidden");
+  } else {
+    noTaskMsg.classList.add("hidden");
+    for (let i = 0; i < tasks.length; i++) {
+      let item = tasks[i];
+      const li = document.createElement("li");
+      const p = document.createElement("p");
+      const btn = document.createElement("input");
+      btn.addEventListener("click", () => handleCheckbox(i, btn));
+      btn.setAttribute("class", "btn");
+      btn.setAttribute("type", "checkbox");
+      if (item.completed) {
+        btn.setAttribute("checked", true);
+      } else {
+        btn.removeAttribute("checked");
+      }
 
-    p.textContent = item.text;
-    li.appendChild(btn);
-    li.appendChild(p);
-    list.appendChild(li);
+      p.textContent = item.text;
+      li.appendChild(btn);
+      li.appendChild(p);
+      list.appendChild(li);
+    }
   }
 }
 
@@ -65,4 +71,12 @@ function markTaskCompletedOrNot(taskIndex, isCompleted) {
   updateView();
 }
 
+function handleReset(ev) {
+  console.log(ev);
+  ev.preventDefault();
+  tasks = [];
+  updateView();
+}
+
 addBtn.addEventListener("click", btnHandler);
+btnReset.addEventListener("click", handleReset);
